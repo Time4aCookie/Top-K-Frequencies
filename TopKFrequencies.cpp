@@ -36,15 +36,30 @@ ostream & operator<<(ostream& os, const vector<int>& k){
 	cout <<" ]";
 	return os;
 }
+bool cmp(pair<int, int>&a, pair<int, int> &b ){
+	return a.second>b.second;
+}
 
+/*Option 1:
+make map, then make vector based on frequency from highest to lowest then resize to k
+Option 2:
+iterate through keeping track of smallest frequency in ans vector replace number if its frequency exceeds n reset smallest
+ */
 vector<int> TopKFrequencies::topKFrequentOptimal(vector<int> &nums, int k) {
 	map<int, int> mp;
-	vector<int> ans(k, 0);
+	vector<int> answer(k);
 	for(int i = 0; i < nums.size(); ++i) {
 		auto it = mp.insert({nums[i], 1});
-		if(it.second == false){
+		if (it.second == false) {
 			it.first->second++;
 		}
-
+	}
+	vector<pair<int,int>> ans(mp.begin(), mp.end());
+	sort(ans.begin(), ans.end(), cmp);
+	for(int i = 0; i < k; ++i) {
+		answer[i] = ans[i].first;
+	}
+	return answer;
 }
+
 

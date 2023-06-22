@@ -9,5 +9,7 @@ public:
 	vector<int> topKFrequent(std::vector<int>& nums, int k);
 	vector<int> topKFrequentOptimal(vector<int>& nums, int k);
 	friend ostream & operator<<(ostream& os, const vector<int>& k);
+	friend bool cmp(pair<int, int>&a, pair<int, int> &b );
 };
+	bool cmp(pair<int, int>&a, pair<int, int> &b );
 	ostream & operator<<(ostream& os, const vector<int>& k);

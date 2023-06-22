@@ -5,8 +5,10 @@
 using namespace std;
 
 int main(int argc, char * argv[]){
+
 	TopKFrequencies test;
 	vector<int> example{1,1,2,3,3,3,4,5,6};
-	vector<int> answer = test.topKFrequent(example, 2);
+	vector<int> answer = test.topKFrequentOptimal(example, 2);
 	cout << answer << endl;
+
 }
